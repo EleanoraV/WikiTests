@@ -73,7 +73,7 @@ public class TC_001_Login {
         ImageDiffer imgDiff = new ImageDiffer();
         ImageDiff diff = imgDiff.makeDiff(actualImage, expectedImage); // finds our if the second picture looks the same
 
-        Assert.assertTrue(diff.hasDiff()); // See if the images match
+        Assert.assertTrue(diff.hasDiff()); // See if the images match h y
 
 
 
