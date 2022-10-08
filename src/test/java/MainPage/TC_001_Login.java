@@ -84,12 +84,3 @@ public class TC_001_Login {
     }
 }
 
-        //screenshot.getImage()
-//
-//// Along with driver pass element also in takeScreenshot() method.
-//
-//        //Screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver,element);
-//
-//        //ImageIO.write(screenshot.getImage(), "jpg", new File("c:\\ElementScreenshot.jpg"));
-//    }
-//}
