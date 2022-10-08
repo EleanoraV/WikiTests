@@ -65,15 +65,15 @@ public class TC_001_Login {
 
         Screenshot screenshotw = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver, bodyelement);
 
-        ImageIO.write(screenshotw.getImage(), "jpg", new File("R:\\Eliska\\Selenium\\Cucumber\\Wikipedia\\src\\test\\java\\MainPage\\Screenshots\\newimage.jpg"));
+        ImageIO.write(screenshotw.getImage(), "jpg", new File("R:\\Eliska\\Selenium\\Cucumber\\Wikipedia\\src\\test\\java\\MainPage\\Screenshots\\newimage.jpg")); // takes screenshot of the element
 
-        BufferedImage expectedImage = ImageIO.read(new File("R:\\Eliska\\Selenium\\Cucumber\\Wikipedia\\src\\test\\java\\MainPage\\Screenshots\\fullimage.jpg"));
+        BufferedImage expectedImage = ImageIO.read(new File("R:\\Eliska\\Selenium\\Cucumber\\Wikipedia\\src\\test\\java\\MainPage\\Screenshots\\fullimage.jpg")); //another image
         BufferedImage actualImage = screenshotw.getImage();
 
         ImageDiffer imgDiff = new ImageDiffer();
-        ImageDiff diff = imgDiff.makeDiff(actualImage, expectedImage);
+        ImageDiff diff = imgDiff.makeDiff(actualImage, expectedImage); // finds our if the second picture looks the same
 
-        Assert.assertTrue(diff.hasDiff());
+        Assert.assertTrue(diff.hasDiff()); // See if the images match
 
 
 
