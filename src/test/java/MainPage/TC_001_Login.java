@@ -19,6 +19,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 public class TC_001_Login {
     WebDriver driver = new ChromeDriver();
@@ -65,7 +66,10 @@ public class TC_001_Login {
 
         Screenshot screenshotw = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver, bodyelement);
 
-        ImageIO.write(screenshotw.getImage(), "jpg", new File("R:\\Eliska\\Selenium\\Cucumber\\Wikipedia\\src\\test\\java\\MainPage\\Screenshots\\newimage.jpg")); // takes screenshot of the element
+        String timeStamp = new SimpleDateFormat("yyyy-MM-dd-HH-mm").format(new java.util.Date());
+        String var = timeStamp + ".jpg";
+
+        ImageIO.write(screenshotw.getImage(), "jpg", new File("R:\\Eliska\\Selenium\\Cucumber\\Wikipedia\\src\\test\\java\\MainPage\\Screenshots\\" + var)); // takes screenshot of the element
 
         BufferedImage expectedImage = ImageIO.read(new File("R:\\Eliska\\Selenium\\Cucumber\\Wikipedia\\src\\test\\java\\MainPage\\Screenshots\\fullimage.jpg")); //another image
         BufferedImage actualImage = screenshotw.getImage();

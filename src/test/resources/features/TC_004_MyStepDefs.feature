@@ -13,7 +13,7 @@ Feature: Search Functionality feature
 
   Examples:
     | country |
-    | Japan   |
+    | Uganda   |
     | Brazil  |
     | Egypt   |
 

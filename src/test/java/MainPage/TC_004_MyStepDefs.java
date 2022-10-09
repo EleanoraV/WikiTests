@@ -3,13 +3,20 @@ package MainPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.After;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 
 public class TC_004_MyStepDefs {
@@ -44,18 +51,22 @@ public class TC_004_MyStepDefs {
 
 
     @Then("I'm on page of {word}")
-    public void i_m_on_page_of(String country) {
+    public void i_m_on_page_of(String country) throws IOException {
         //Make sure the title is as it should be
         String webtitle = driver.getTitle();
+        Screenshot screenshotw = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
+
+        String timeStamp = new SimpleDateFormat("yyyy-MM-dd-HH-mm").format(new java.util.Date()); //timestamp for screenshot
+        String var = timeStamp + country + ".jpg";
+        ImageIO.write(screenshotw.getImage(), "jpg", new File("R:\\Eliska\\Selenium\\Cucumber\\Wikipedia\\src\\test\\java\\MainPage\\Screenshots\\", var)); // takes screenshot of the element
+
         Assert.assertEquals(country + " - Wikipedia", webtitle);
-
-    }
-
-
-    @After
-    public void teardown() {
         driver.quit();
+
     }
+
+
+
 
 }
 
